@@ -2,7 +2,11 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 import numpy as np
+from flask import render_template
 
+@app.route('/')
+def home():
+    return render_template('index.html')
 # --- Load the Trained Machine Learning Pipeline ---
 pipeline_path = 'diabetes_pipeline.joblib'
 loaded_pipeline = joblib.load(pipeline_path)
